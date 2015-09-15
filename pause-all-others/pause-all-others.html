@@ -1,0 +1,30 @@
+<div id="wistia_9kksns1ede" class="wistia_embed" style="width:480px;height:270px;">&nbsp;</div>
+<div id="wistia_oh34zbesuh" class="wistia_embed" style="width:480px;height:270px;">&nbsp;</div>
+<div id="wistia_2jvt3wqkye" class="wistia_embed" style="width:480px;height:270px;">&nbsp;</div>
+
+<script charset="ISO-8859-1" src="//fast.wistia.com/assets/external/E-v1.js"></script>
+
+<script>
+wistiaEmbedA = Wistia.embed("9kksns1ede");
+wistiaEmbedB = Wistia.embed("oh34zbesuh");
+wistiaEmbedC = Wistia.embed("2jvt3wqkye");
+</script>
+
+
+<script>
+// grabs all other embeds on the page and pauses them
+var i;
+function pauseAllOthers(thisId) {
+  for (i = 0; i < wistiaEmbeds.length; i++) {
+    if (wistiaEmbeds[i].hashedId() != thisId) {
+      wistiaEmbeds[i].pause();
+    }
+  }
+}
+// binds pauseAllOthers() to the play() event for every embed
+wistiaEmbeds.onFind(function(video) {
+  video.bind('play', function() {
+    pauseAllOthers(this.hashedId());
+  });
+});
+</script>

@@ -1,0 +1,45 @@
+<html>
+  <body>
+
+    <div id="video_container" class="wistia_embed" style="width:640px;height:360px;" data-video-width="640" data-video-height="360"> </div>
+
+    <script charset="ISO-8859-1" src="http://fast.wistia.com/static/concat/E-v1%2CpostRoll-v1.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    <script>
+      // embed the initial video
+      wistiaEmbed = Wistia.embed("8svffsb6fi", {
+        container: "video_container"
+      });
+
+      // set up the postRoll plugin, including links for each video with hashed id set in data-hashedid
+      Wistia.plugin.postRoll(wistiaEmbed, {
+        version: "v1",
+        raw: "<ul><li><a class='post_roll_link' data-hashedid='drn5innxli' href='#'>Wistia 2012 recap</a></li><li><a class='post_roll_link' data-hashedid='9gj48v543y' href='#'>Wistia 2011 recap</a></li></ul>",
+        style: {
+          backgroundColor: "#616161",
+          color: "#ffffff",
+          fontSize: "36px",
+          fontFamily: "Gill Sans, Helvetica, Arial, sans-serif"
+        }
+      });
+
+      // run the switchVideo function when each link is clicked, passing in the new video's hashed id
+      $('body').on('click', 'a.post_roll_link', function() {
+        switchVideo(this.dataset.hashedid);
+      });
+
+      // switch the video
+      function switchVideo(newVid) {
+        wistiaEmbed.remove();
+        wistiaEmbed = Wistia.embed(newVid, {
+          container: "video_container"
+        });
+        wistiaEmbed.play();
+      }
+    </script>
+
+
+
+  </body>
+</html>

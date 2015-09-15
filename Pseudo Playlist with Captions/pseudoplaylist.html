@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+<div id="video_container" class="wistia_embed" style="width:640px;height:360px;"> </div>
+<script charset="ISO-8859-1" src="//fast.wistia.com/assets/external/E-v1.js"></script>
+<script>
+wistiaEmbed = Wistia.embed("pg4j8myhlr", {
+	container: "video_container"
+});
+</script>
+
+<a href="#" class="playlist_link" id="wistia_pg4j8myhlr_link" data-hashedid="pg4j8myhlr">Show me video 1!</a>
+<a href="#" class="playlist_link" id="wistia_1jzd3kfc0i_link" data-hashedid="1jzd3kfc0i">Show me video 2!</a>
+
+<script>
+// make an array of all links for videos in the playlist
+var playlistLinks = document.getElementsByClassName('playlist_link');
+
+// run the switchVideo function when each link is clicked, passing in the new video's hashed id
+var index;
+for (index = 0; index < playlistLinks.length; ++index) {
+  playlistLinks[index].onclick = function() {
+    switchVideo(this.dataset.hashedid);
+  }
+}
+
+// switch dat video
+function switchVideo(newVid) {
+  if (wistiaEmbed.hashedId() != newVid) {
+    wistiaEmbed.remove();
+  	wistiaEmbed = Wistia.embed(newVid, {
+  		container: "video_container"
+  	});
+    wistiaEmbed.play();
+  } else {
+    console.log("You're already playing that video, buddy.");
+  }
+};
+
+</script>
+
+
+</body>
+
+</html>

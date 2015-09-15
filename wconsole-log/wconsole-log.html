@@ -1,0 +1,36 @@
+<script type="text/javascript">
+    (function(w) {
+        if (w.chrome && w.console) {
+            // Console Easter Egg.
+            // TODO: Abstract this into a separate library.
+            var logoStyle = [
+                    'margin: 0px 0px',
+                    'padding: 0px 342px 200px 0px',
+                    'color: transparent',
+                    'background-image: url("http://i.imgur.com/mY38Qi0.gif")',
+                    'background-repeat: no-repeat',
+                    'line-height: 400px',
+                    'background-position: center center',
+                    'border-radius: 0px',
+                    'font-size: 20px',
+                    'width: 100px'
+                ].join(';'),
+                bodyTextStyle = [
+                    'font-size: 13px',
+                    'line-height: 16px',
+                    'font-family: Helvetica',
+                    'color: #222'
+                ].join(';'),
+                bold = bodyTextStyle + '; font-weight: bold',
+                shipit = [
+                    'background-image: url("https://github.global.ssl.fastly.net/images/icons/emoji/+1.png")',
+                    'background-size: cover',
+                    'line-height: 16px'
+                ].join(';');
+
+            console.log('\n%c%c\n\nMY NAME IS BEN\n%cWelcome to the Internet %c  \n', logoStyle, bold, bodyTextStyle, shipit);
+
+        }
+    })(window);
+
+</script>

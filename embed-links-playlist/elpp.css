@@ -1,0 +1,26 @@
+#embed_links_wrapper {
+  width: 640px;
+  padding-top: 3px;
+}
+
+#embed_links {
+  text-align: center;
+}
+
+.embed_link {
+  display: inline-block;
+  border-radius: 50%;
+	width: 13px;
+	height: 13px;
+  background: #2398f9;
+  margin: 2px 2px 2px 2px
+}
+
+input {
+  display: inline-block;
+  margin-top: 10px;
+}
+
+form {
+  margin-bottom: 10px;
+}
